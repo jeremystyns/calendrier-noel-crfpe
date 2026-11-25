@@ -448,7 +448,7 @@ const SAPIN = "data:image/webp;base64,UklGRhomAABXRUJQVlA4WAoAAAAQAAAAtwAAjwEAQU
 const MOUVEMENT_REDUIT = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ---------- Dates ---------- */
-function dateDuJour(n){ return new Date(CONFIG.annee, 11, n).toLocaleDateString("fr-FR",{weekday:"long", day:"numeric", month:"long"}); }
+function dateDuJour(n){ return new Date(CONFIG.annee, 11, n).toLocaleDateString("fr-FR",{weekday:"long", day:"numeric", month:"long"}).replace(/ 1 /, " 1er "); }
 function lireForcage(){
   const p = new URLSearchParams(location.search).get("jour");
   const h = (location.hash.match(/^#jour-(\w+)$/)||[])[1];
