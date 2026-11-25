@@ -4,6 +4,6 @@ Calendrier de l'Avent numérique sur le bien-être et le prendre soin de soi, pr
 
 Chaque jour, une case à gratter révèle une surprise : une phrase, une musique, une recette, une pause ou un petit défi. Les cases des jours passés restent ouvertes, les suivantes s'ouvrent jour après jour.
 
-La page tient dans un seul fichier, `index.html`, publié avec GitHub Pages.
+La page tient dans un seul fichier, `index.html`, publié avec GitHub Pages. Elle peut être ajoutée à l'écran d'accueil d'un téléphone comme une application (`manifest.webmanifest`, dossier `icons`) et reste consultable hors connexion (`sw.js`).
 
 Pour tester un jour précis, passer `modeTest` à `true` dans le bloc `CONFIG` du fichier : un sélecteur de jour apparaît alors en haut de la page.

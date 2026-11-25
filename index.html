@@ -3,6 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#004C8E">
+<meta name="description" content="Le calendrier de l'Avent bien-être du CRFPE : une case à gratter chaque jour du 1er au 25 décembre.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Avent CRFPE">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Calendrier de l'Avent CRFPE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,7 +111,7 @@ body{background:var(--neige);color:var(--encre);font-family:var(--police-texte);
 .sol::after{content:"";position:absolute;left:0;right:0;bottom:0;height:28px;background:linear-gradient(transparent,var(--neige))}
 
 .scene-contenu{position:relative;z-index:5;flex:1;width:100%;max-width:760px;margin:0 auto;display:flex;flex-direction:column;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:env(safe-area-inset-top,0px) 0}
 .test{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;background:#E2F4FC;color:#2F3342;border:1px dashed #0B6E99;border-radius:var(--rayon);padding:8px 12px;font-size:13px;margin-top:10px}
 .test b{color:#0B6E99;font-weight:800}
 .test label{display:flex;align-items:center;gap:6px}
@@ -1013,6 +1022,11 @@ document.getElementById("descendre").addEventListener("click", () => {
 preparerTest();
 rendre();
 window.addEventListener("hashchange", () => { jourSimule = null; rendre(); });
+</script>
+<script>
+if("serviceWorker" in navigator && location.protocol === "https:"){
+  window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+}
 </script>
 </body>
 </html>
