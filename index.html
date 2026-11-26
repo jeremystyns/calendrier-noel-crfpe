@@ -159,7 +159,7 @@ body{background:var(--neige);color:var(--encre);font-family:var(--police-texte);
 /* ---------- Calendrier entier et projet ---------- */
 .bloc{padding-top:48px;scroll-margin-top:12px}
 .bloc h2{margin:0 0 6px;font-weight:800;font-size:clamp(24px,6vw,32px);line-height:1.15;color:var(--titre);text-wrap:balance}
-.bloc > p{margin:0 0 18px;color:var(--encre-douce);max-width:60ch}
+.bloc > p{margin:0 0 18px;color:var(--encre-douce)}
 .grille{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;list-style:none;margin:0;padding:0}
 @media (min-width:600px){.grille{grid-template-columns:repeat(6,minmax(0,1fr))}}
 .case{position:relative;width:100%;aspect-ratio:1;border-radius:var(--rayon);border:1px solid var(--filet);background:var(--surface);color:var(--titre);font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:4px;transition:background-color .18s var(--sortie), transform .18s var(--sortie)}
@@ -172,12 +172,23 @@ body{background:var(--neige);color:var(--encre);font-family:var(--police-texte);
 .case.future{background:var(--verrou);color:var(--verrou-texte);border-color:transparent}
 .case.future svg{width:14px;height:14px}
 
-.projet{display:flex;flex-direction:column;gap:14px;max-width:62ch}
+.projet{display:flex;flex-direction:column;gap:14px}
 .projet p{margin:0}
 .projet h3{margin:12px 0 0;font-size:19px;font-weight:800;color:var(--sapin)}
 .projet ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
 .projet li::marker{color:var(--rouge)}
-.projet .note{font-size:14px;color:var(--encre-douce);border-top:1px solid var(--filet);padding-top:14px}
+.sante{margin-top:10px;background:var(--surface);border:1px solid var(--filet);border-radius:var(--rayon);padding:20px;display:flex;flex-direction:column;gap:16px}
+.sante-intro{font-weight:700;color:var(--titre)}
+.sante-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px}
+@media(max-width:600px){.sante-cols{grid-template-columns:minmax(0,1fr)}}
+.sante-cols > div{display:flex;flex-direction:column;gap:8px}
+.sante h4{margin:0;font-size:16px;font-weight:800;color:var(--sapin)}
+.sante p{margin:0;font-size:15px}
+.sante .bouton{align-self:flex-start}
+.sante-projet{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-top:1px solid var(--filet);padding-top:14px;font-size:13px;color:var(--encre-douce)}
+.sante-projet p{font-size:13px}
+.sante-logo{background:#FFFFFF;border-radius:4px;padding:6px 8px;display:inline-flex}
+.sante-logo img{height:40px;width:auto;display:block}
 .pied{margin-top:48px;display:flex;align-items:center;gap:14px;font-size:13px;color:var(--encre-douce);border-top:1px solid var(--filet);padding-top:16px}
 .pied img{height:34px;width:auto}
 .logo-sombre{display:none!important}
@@ -409,23 +420,37 @@ dialog::backdrop{background:var(--voile);backdrop-filter:blur(2px)}
 
   <div class="page">
     <section class="bloc" id="calendrier" aria-labelledby="titre-grille">
-      <h2 id="titre-grille">Les 24 cases</h2>
-      <p>Touchez une case déjà ouverte pour relire sa surprise. Les suivantes s'ouvriront jour après jour.</p>
+      <h2 id="titre-grille">Les 25 cases</h2>
+      <p>Touche une case déjà ouverte pour relire sa surprise. Les suivantes s'ouvriront jour après jour.</p>
       <ol class="grille" id="grille"></ol>
     </section>
 
     <section class="bloc" id="projet" aria-labelledby="titre-projet">
       <h2 id="titre-projet">Le projet</h2>
       <div class="projet">
-        <p>Pour ce mois de décembre, une petite équipe du CRFPE a imaginé un calendrier de l'Avent autour du bien-être et du prendre soin de soi. Il s'adresse à tout le monde : étudiants, stagiaires, formateurs et équipe administrative.</p>
-        <p>Les surprises viennent de vous. En novembre, chacun a pu déposer une ressource dans une boîte à idées : une phrase, une astuce, une musique, un livre, une recette ou une petite pause. L'équipe projet en a retenu vingt-quatre, une pour chaque jour.</p>
+        <p>Pour ce mois de décembre, quatre lutins de l'équipe du CRFPE, Charlotte C., Amandine D., Guillaume B. et Jeremy S., ont imaginé un calendrier de l'Avent autour du bien-être et du prendre soin de soi. Il s'adresse à tout le monde : étudiants, stagiaires, formateurs et équipe administrative.</p>
+        <p>Les surprises viennent de l'équipe du CRFPE. Chacun a proposé ce qui lui fait du bien : une phrase, une astuce, une musique, un livre, une recette ou une petite pause. Nous en avons retenu une pour chaque jour, jusqu'à Noël.</p>
         <h3>Comment ça marche</h3>
         <ul>
-          <li>Chaque jour, une nouvelle case s'ouvre. Grattez-la avec le doigt, ou utilisez le bouton « Révéler sans gratter ».</li>
-          <li>Les cases des jours précédents restent ouvertes : vous pouvez les relire quand vous voulez.</li>
-          <li>Les cases à venir restent fermées jusqu'à leur date.</li>
+          <li>Chaque jour, une nouvelle case s'ouvre. Gratte-la avec le doigt, ou utilise le bouton « Révéler sans gratter ».</li>
+          <li>Les cases des jours précédents restent ouvertes : tu peux les relire quand tu veux.</li>
+          <li>Les cases à venir restent fermées jusqu'à leur date. Et le 25, une dernière surprise t'attend.</li>
         </ul>
-        <p class="note">Ces idées sont de petits coups de pouce du quotidien. Elles ne remplacent pas l'avis d'un professionnel de santé.</p>
+        <aside class="sante" aria-labelledby="titre-sante">
+          <p id="titre-sante" class="sante-intro">Ces idées sont de petits coups de pouce du quotidien. Elles ne remplacent pas l'avis d'un professionnel de santé.</p>
+          <div class="sante-cols">
+            <div>
+              <h4>Tu es étudiant ou stagiaire ?</h4>
+              <p>Tu trouveras des ressources pour prendre soin de ta santé mentale dans l'espace dédié de PEPSS.</p>
+              <a class="bouton" href="https://pepss.crfpe.fr/course/index.php?categoryid=135" target="_blank" rel="noopener">Ressources santé mentale sur PEPSS</a>
+            </div>
+            <div>
+              <h4>Tu fais partie de l'équipe ?</h4>
+              <p>Si tu en ressens le besoin, n'hésite pas à te faire accompagner et à consulter un professionnel de santé.</p>
+            </div>
+          </div>
+          <div class="sante-projet"><span class="sante-logo"><img src="data:image/webp;base64,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" alt="Travail social : bien se former pour mieux accompagner"></span><p>Ce calendrier s'inscrit dans le projet santé mentale du CRFPE.</p></div>
+        </aside>
       </div>
     </section>
 
@@ -531,7 +556,7 @@ const SURPRISES = [
    texte:"Partage avec ton entourage le titre d'un livre qui te fait du bien. Tu peux aussi le partager avec nous sur notre Digipad."},
   {jour:15, type:"citation", titre:"Danser sous la pluie", mise:"citation",
    texte:"La vie, ce n'est pas d'attendre que les orages passent, c'est d'apprendre à danser sous la pluie.",
-   apres:"Hier, vous avez été nombreux à partager vos livres préférés : va découvrir toutes les idées de lecture sur le Digipad.", lien:DIGIPAD, libelleLien:"Découvrir les livres partagés"},
+   apres:"Hier, beaucoup ont partagé leur livre préféré : va découvrir toutes les idées de lecture sur le Digipad.", lien:DIGIPAD, libelleLien:"Découvrir les livres partagés"},
   {jour:16, type:"defi", titre:"Prépare ton accessoire", mise:"special", special:"accessoire",
    texte:"Prépare un accessoire de Noël pour demain : des paillettes, des boules de Noël en boucles d'oreilles, un pull, un chapeau, des chaussettes… Peu importe lequel, l'essentiel est de ne pas l'oublier !"},
   {jour:17, type:"zen", titre:"Accessoire et bol d'air", mise:"special", special:"balade",
@@ -788,7 +813,7 @@ function installerGrattage(carte, canvas, jour, quandFini){
     ctx.font = '600 '+Math.round(rt*1.15)+'px Barlow, "Arial Narrow", sans-serif';
     ctx.fillText(String(jour), cx, cy + rt*0.06);
     ctx.fillStyle = "#FFFFFF"; ctx.font = '600 15px Barlow, "Arial Narrow", sans-serif';
-    ctx.fillText("GRATTEZ AVEC LE DOIGT", cx, Math.min(H - 24, cy + rt + 38));
+    ctx.fillText("GRATTE AVEC TON DOIGT", cx, Math.min(H - 24, cy + rt + 38));
   }
   function position(e){ const r = canvas.getBoundingClientRect(); return {x:e.clientX-r.left, y:e.clientY-r.top}; }
   function gratter(e){
@@ -833,7 +858,7 @@ function afficherJour(jour){
   grattageActuel = null; bouton.hidden = true;
   if(jour === 0){
     titre.textContent = "Bientôt";
-    zone.innerHTML = '<div class="grattage"><div class="message-vide"><strong>Le calendrier s\'ouvre le '+dateDuJour(1)+'</strong>Revenez ce jour-là pour gratter la première case.</div></div>';
+    zone.innerHTML = '<div class="grattage"><div class="message-vide"><strong>Le calendrier s\'ouvre le '+dateDuJour(1)+'</strong>Reviens ce jour-là pour gratter la première case.</div></div>';
     consigne.textContent = "";
     return;
   }
@@ -846,13 +871,13 @@ function afficherJour(jour){
   const s = SURPRISES.find(x => x.jour === jour);
   titre.textContent = dateDuJour(jour);
   zone.innerHTML = '<div class="grattage" id="carte-jour"><div id="contenu-jour" aria-hidden="true" style="width:100%;display:flex;justify-content:center">'+surpriseHtml(s,"titre-surprise")+'</div><canvas id="toile" aria-hidden="true"></canvas></div>';
-  consigne.textContent = "Grattez la case pour découvrir la surprise du jour.";
+  consigne.textContent = "Gratte la case pour découvrir la surprise du jour.";
   bouton.hidden = false;
   const contenu = document.getElementById("contenu-jour");
   grattageActuel = installerGrattage(document.getElementById("carte-jour"), document.getElementById("toile"), jour, () => {
     contenu.removeAttribute("aria-hidden"); activer(contenu);
     bouton.hidden = true;
-    consigne.textContent = jour < 24 ? "Revenez demain pour la case du "+(jour+1)+"." : "C'était la dernière case. Joyeuses fêtes.";
+    consigne.textContent = jour < 24 ? "Reviens demain pour la case du "+(jour+1)+"." : "Reviens demain : une dernière surprise t'attend pour Noël.";
     document.getElementById("annonce").textContent = "Surprise révélée : " + s.titre;
   });
 }
@@ -994,7 +1019,7 @@ function rendre(){
   document.getElementById("indice").textContent =
     jour === 0 ? "Première case le " + dateDuJour(1) :
     jour === 25 ? "Les 24 cases sont ouvertes" :
-    "La case du " + jour + " décembre vous attend";
+    "La case du " + jour + " décembre t'attend";
   afficherJour(jour);
   afficherGrille(jour);
 }
