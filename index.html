@@ -185,6 +185,7 @@ body{background:var(--neige);color:var(--encre);font-family:var(--police-texte);
 .sante h4{margin:0;font-size:16px;font-weight:800;color:var(--sapin)}
 .sante p{margin:0;font-size:15px}
 .sante .bouton{align-self:flex-start}
+.sante-tous{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--filet);padding-top:16px}
 .sante-logo{height:52px;width:auto;max-width:100%;align-self:flex-start;border-radius:4px}
 .pied{margin-top:48px;display:flex;align-items:center;gap:14px;font-size:13px;color:var(--encre-douce);border-top:1px solid var(--filet);padding-top:16px}
 .pied img{height:34px;width:auto}
@@ -446,6 +447,11 @@ dialog::backdrop{background:var(--voile);backdrop-filter:blur(2px)}
               <h4>Tu fais partie de l'équipe ?</h4>
               <p>Si tu en ressens le besoin, n'hésite pas à te faire accompagner et à consulter un professionnel de santé.</p>
             </div>
+          </div>
+          <div class="sante-tous">
+            <h4>Pour tout le monde</h4>
+            <p>Le site officiel de Santé publique France sur la santé mentale propose des informations et des exercices pour prendre soin de soi au quotidien.</p>
+            <a class="bouton" href="https://www.santementale-info-service.fr" target="_blank" rel="noopener">Santé mentale info service</a>
           </div>
         </aside>
       </div>
